@@ -74,16 +74,6 @@ combined_df = pd.concat([dfs[hashtag]['value'] for hashtag in hashtags], axis=1)
 # Set new column names
 combined_df.columns = hashtags
 
-# Save to CSV
-current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-filename = f"hashtag_trends_{current_time}.csv"
-combined_df.to_csv(filename, index_label='time')
-# Combine dataframes
-combined_df = pd.concat([dfs[hashtag]['value'] for hashtag in hashtags], axis=1)
-
-# Set new column names
-combined_df.columns = hashtags
-
 # Add average column
 combined_df['average'] = combined_df.mean(axis=1)
 
